@@ -1,0 +1,25 @@
+    <script>
+      const handleSelect=(country,city)=>{
+      var country=document.getElementById(country);
+      var city=document.getElementById(city);
+
+  city.innerHTML="";
+  if(country.value="Pakistan")
+  {
+    var optionArray=['karachi|Karachi','lahore|Lahore','islamabad|Islamabad'];
+  }
+  else  if(country.value="India")
+  {
+    var optionArray=['goa|Goa','delhi|Delhi','mumbai|Mumbai']
+  }
+    for (var option in optionArray)
+    {
+      var pair=optionArray[option].split("|");
+      var newOption=document.createElement("option");
+    
+      newOption.value=pair[0];
+      newOption.innerHTML=pair[1];
+      city.options.add(newOption);
+    }
+}
+</script>

@@ -1,0 +1,15 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.card
+{
+    /* border-radius: 50%; */
+    border-color: rgb(159, 62, 62);
+    outline-color: darkgreen;
+    outline-style: solid;
+    border: 10 px solid;
+    border-style: double;
+    
+}

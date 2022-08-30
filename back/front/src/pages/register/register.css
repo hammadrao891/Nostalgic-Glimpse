@@ -1,0 +1,223 @@
+.login {
+	width: 50%;
+	height: 94vh;
+	background-color: #f0f2f5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  .whole{
+	width:100%;
+Height:100vh;
+/* Background-image:url(“https://images.pexels.com/photos/9639826/pexels-photo-9639826.jpeg?auto=compress&cs=tinysrgb&w=600”); */
+Background-size:100% 100%;
+Background-attachment:fixed;
+
+}
+/* .s
+{
+	overflow: hidden;
+} */
+.loginHead
+{
+	text-align: center;
+	color:#1775ee
+
+}
+
+.regHead{
+	text-align: center;
+	color: #1775ee;
+}
+.web
+{
+	
+	-ms-transform: translateX(10220%);
+		  transform: translateX(250%);
+		  background-color: #42b72a;
+		  border-radius: 151px 145px 145px 146px;
+-webkit-border-radius: 151px 145px 145px 146px;
+-moz-border-radius: 151px 145px 145px 146px;
+padding: 30px;
+text-align: center;
+
+/* border: 17px solid #ff6550; */
+}
+
+.header{
+	height: 50%;
+	width: 100%;
+}  
+  
+  .logins {
+	width: 100%;
+	height: 20%;
+	/* opacity: 0.8; */
+	background-color: #f0f2f5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+  }
+  .loginWrapper {
+	width: 70%;
+	height: 70%;
+	display: flex;
+  }
+  
+  .loginLeft,
+  .loginRight {
+	/* flex: 1; */
+	/* display: flex; */
+	width:50%;
+	height: auto;
+	flex-direction:row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10%;
+	margin-left: 20%;
+	opacity: 0.8;
+  }
+  
+  .loginLogo {
+	font-size: 50px;
+	font-weight: 800;
+	color: #1775ee;
+	margin-bottom: 10px;
+  }
+  
+  .loginDesc {
+	font-size: 24px;
+  }
+  
+.loginBox{
+	opacity:0.8;
+		margin: auto;
+		/* text-align: center; */
+  		width: 50%;
+		  margin: 0;
+		  position: absolute;
+		  top: 50%;
+		  left:30%;
+		  -ms-transform: translateY(-50%);
+		  transform: translateY(-50%);
+	  		border: 3px solid green;
+  			padding: 10px;
+	  height: 60%;
+	  width: 30%;
+	  /* padding: 20px; */
+	  background-color: white;
+	  border-radius: 10px;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+	  /* align-items: center; */
+  }
+/* .navbar
+{
+	height:80px;
+	background-color: #1775ee;
+} */
+
+.footer
+{
+	background-color: #848c83;
+	height: 65px;
+}
+.foo
+{
+	text-align: center;
+	justify-content: center;
+	font-weight: 500;
+	padding:  20px; 
+	font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+  .container
+  {
+	background: url('https://media.istockphoto.com/photos/india-vs-pakistan-picture-id1160199142?k=20&m=1160199142&s=612x612&w=0&h=f-2o3sH66pgGLwN-kBc29xRq-ueYv8KT-0lfXhVJowA=');
+    background-size: cover;
+    height: 640px;
+  }
+
+  .full
+
+  {
+	background: url('https://media.istockphoto.com/photos/india-vs-pakistan-picture-id1160199142?k=20&m=1160199142&s=612x612&w=0&h=f-2o3sH66pgGLwN-kBc29xRq-ueYv8KT-0lfXhVJowA=');
+    background-size: cover;
+    height: 640px;
+
+}
+  .loginBoxR{
+	  height: 400px;
+	  padding: 20px;
+	  background-color: white;
+	  border-radius: 10px;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+  }
+
+
+
+  
+  .loginInput{
+	  height: 50px;
+	  border-radius: 10px;
+	  border: 1px solid gray;
+	  font-size: 18px;
+	  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	  padding-left: 20px;
+	  margin: 10px;
+  }
+  
+  .loginInput:focus{
+	  outline: none;
+  }
+  
+  .loginButton{
+	  height: 50px;
+	  border-radius: 10px;
+	  border: none;
+	  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	  background-color: #1775ee;
+	  color: white;
+	  font-size: 20px;
+	  font-weight: 500;
+	  cursor: pointer;
+	  /* justify-content: center; */
+	  text-align: center;
+	  padding: 10px;
+  }
+  
+  .loginForgot{
+	  text-align: center;
+	  color: #1775ee;
+  }
+
+  .label
+  {
+	font-weight: 500;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	text-align: center;
+  }
+  
+  .loginRegisterButton{
+	  width: 50%;
+	  align-self: center;
+	  justify-content: center;
+	  height: 50px;
+	  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	  border-radius: 10px;
+	  border: none;
+	  background-color: #42b72a;
+	  color: white;
+	  font-size: 20px;
+	  font-weight: 500;
+	  cursor: pointer;
+	  margin: 10px;
+	  margin-left: 20%;
+				
+  }
