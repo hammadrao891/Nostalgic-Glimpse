@@ -14,8 +14,6 @@ import Messenger2 from "./components/messenger2/Messenger2";
 import Conversation from './components/conversations/Conversation';
 import { pContext } from './context/PContext';
 import Message from './components/message/Message';
-import LandingPage from './pages/landingpage/LandingPage';
-import Navbar from './components/navbar/Navbar';
 import About from './pages/about/About';
 const App = () => {
   const { user } = useContext(AuthContext);

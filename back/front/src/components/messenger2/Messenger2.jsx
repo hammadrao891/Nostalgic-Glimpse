@@ -10,6 +10,7 @@ import Message2 from '../message2/Message2'
 import { io } from 'socket.io-client'
 
 const Messenger2 = () => {
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const {pId,setPId}=useContext(pContext)
   const [conversations, setConversations] = useState([])
   const [currentChat,setCurrentChat]=useState(null)
@@ -25,25 +26,28 @@ const Messenger2 = () => {
 useEffect(() => {
   socket.current = io("ws://localhost:8900");
   socket.current.on("getMessage", (data) => {
+    console.log("ss")
     console.log(data.senderId)
   //  alert("get Called")
+  console.log("gg")
     setArrivalMessage({
       sender: data.senderId,
       text: data.text,
       createdAt:Date.now()
     });
-    console.log("ss")
+    
   });
 }, [setArrivalMessage]);
 useEffect(() => {
   socket.current.emit("addUser", user._id);
   socket.current.on("getUsers", (users) => {
+    console.log("ss");
     console.log(users);
     // setOnlineUsers(
-    //   user.followings.filter((f)  => users.some((u) => u.userId === f))
+    // user.followings.filter((f)  => users.some((u) => u.userId === f))
     // );
   });
-}, [user]);
+}, []);
 
 useEffect(() => {
     arrivalMessage &&
@@ -56,7 +60,7 @@ useEffect(() => {
         try{  
           const res=await axios({
             method: 'get',
-            baseURL: 'http://localhost:1000/back/',
+            baseURL,
             url: `/conversations/${user._id}`,
           })
           console.log(res.data)
@@ -74,7 +78,7 @@ useEffect(()=>{
     try{  
       const res=await axios({
         method: 'get',
-        baseURL: 'http://localhost:1000/back/',
+        baseURL,
         url: `/messages/${currentChat?._id}`,
       })
       console.log(res.data)
@@ -115,7 +119,7 @@ const handleSubmit = async (e) => {
   try {
     const res = await axios({
       method: 'post',
-      baseURL: 'http://localhost:1000/back/',
+      baseURL,
       url: `/messages/`,
       data:message
     })
@@ -223,134 +227,3 @@ const handleSubmit = async (e) => {
 
 export default Messenger2
 
-
-
-
-
-
-
-
- // <>
-              //   <div className="chatBoxTop">
-              //     {messages.map((m) => (
-              //       <div ref={scrollRef}>
-              //         <Message message={m} own={m.sender === user._id} />
-              //       </div>
-              //     ))}
-              //   </div>
-              //   <div className="chatBoxBottom">
-              //     <textarea
-              //       className="chatMessageInput"
-              //       placeholder="write something..."
-              //       onChange={(e) => setNewMessage(e.target.value)}
-              //       value={newMessage}
-              //     ></textarea>
-              //     <button className="chatSubmitButton" onClick={handleSubmit}>
-              //       Send
-              //     </button>
-              //   </div>
-              // </>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useContext, useEffect, useState } from 'react'
-// import axios from 'axios'
-// import "./messenger2.css"
-// import {AuthContext} from "../../context/AuthContext"
-// import { useLocation } from 'react-router-dom'
-
-// const Messenger2 = (props) => {
-//     const [convo,setConvo]=useState([])
-   
-//     const [currentMessage,setCurrentMessage]=useState("")
-//     const [MessageList,setMessageList]=useState([])
-//     const {user}=useContext(AuthContext);
-//     // const location=useLocation()
-//     // const {id}=this.props.location.state
-//     useEffect(()=>{
-//         const getConvo=async()=>{
-//             const res=await
-//             axios({
-//                 method:'get',
-//                 baseURL: 'http://localhost:1000/back/',
-//                 url:"messages/62fe5a149a6a30f861fde6d7"
-//             })
-//             setConvo(res.data);
-//             console.log(res.data)
-//         }
-//         getConvo()
-//     },[])
-
-//     const sendMessage = async () => {
-//         if (currentMessage !== "") {
-//           const messageData = {
-//             senderId: user._id,
-//             conversationId: convo.conversationId[0],
-//             text: currentMessage,
-            
-//           };
-    
-//           await axios({
-//             method:'post',
-//             baseURL: 'http://localhost:1000/back/',
-//             url:"messages",
-//             data:messageData
-//         })
-//         console.log("Submitted")
-//           setMessageList((list) => [...list, messageData]);
-//           setCurrentMessage("");
-//         }
-//       };
-
-//   return (
-//     <div>
-//         <div className='chatWindow'>
-//         <div className="chat-header">
-//         <p>Live Chat {user.username}  {props.value} </p>
-//       </div>
-//       <div className="chat-body">
-//        {convo.map(msg=>(
-//         <p key={msg._id}>{msg.text}</p>
-//        ))}
-//        </div>
-//        <div className="chat-footer">
-//         <input
-//           type="text"
-//           value={currentMessage}
-//           placeholder="Hey..."
-//           onChange={(event) => {
-//             setCurrentMessage(event.target.value);
-//           }}
-//           onKeyPress={(event) => {
-//             event.key === "Enter" && sendMessage();
-//           }}
-//         />
-//         <button onClick={sendMessage}>&#9658;</button>
-//       </div>
-//        </div>
-//     </div>
-//   )
-// }
-
-// export default Messenger2

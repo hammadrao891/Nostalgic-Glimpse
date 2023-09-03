@@ -1,13 +1,15 @@
 import axios from "axios";
 
 export const loginCall = async (userCredential, dispatch) => {
+   const baseURL = process.env.REACT_APP_BASE_URL;
   dispatch({ type: "LOGIN_START" });
   try {
-    // const res = await axios.post("/auth/login", userCredential);
+    
+    
     const res= await 
     axios({
         method: 'post',
-        baseURL: 'http://localhost:1000/back/',
+        baseURL,
         url: '/auth/login',
         data: userCredential
       });
@@ -22,13 +24,15 @@ export const loginCall = async (userCredential, dispatch) => {
 
 
 export const partnerInfo = async (userCredential, dispatch) => {
+  
   dispatch({ type: "LOGIN_START" });
+  const baseURL = process.env.REACT_APP_BASE_URL;
   try {
-    // const res = await axios.post("/auth/login", userCredential);
+    
     const res= await 
     axios({
         method: 'post',
-        baseURL: 'http://localhost:1000/back/',
+        baseURL,
         url: '/auth/partner',
         data: userCredential
       });

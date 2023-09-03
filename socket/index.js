@@ -18,8 +18,8 @@ const removeUser = (socketId) => {
 
 const getUser = (userId) => {
   const user=users.find((user) => user.userId === userId);
-  console.log(user.socketId)
-  const id=user.socketId
+  console.log(user?.socketId)
+  const id=user?.socketId
   console.log("final check")
   console.log(id)
   return id

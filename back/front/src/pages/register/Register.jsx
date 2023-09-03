@@ -7,6 +7,7 @@ import axios from "axios"
 import './register.css'
 import { data,DataCountry } from '../../states'
 const Register = () => {
+  const baseURL = process.env.REACT_APP_BASE_URL;
     const username=useRef();
     const password=useRef();
     const passwordAgain=useRef();
@@ -75,19 +76,19 @@ const Register = () => {
                 country:con
             };
             // console.log(user)
-            alert(con);
-            console.log(state)
+            // alert(con);
+            // console.log(state)
             try{
                 await 
                 axios({
                     method: 'post',
-                    baseURL: 'http://localhost:1000/back/',
+                    baseURL,
                     url: 'auth/register',
                     data: user
                   });
-                alert('submitted');
+                // alert('submitted');
                 // axios.post("auth/register",user);
-                console.log("Submitted");
+                // console.log("Submitted");
                 window.location.reload();
             }
             catch(err)

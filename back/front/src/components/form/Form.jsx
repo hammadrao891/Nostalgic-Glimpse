@@ -9,6 +9,7 @@ import e from 'cors';
 import { AuthContext } from '../../context/AuthContext';
 
 function Form() {
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
  const {pId,setPId}=useContext(pContext);
  const {user} =useContext(AuthContext)
@@ -59,7 +60,7 @@ const match=async(event)=>{
 const res=await 
 axios({
     method: 'get',
-    baseURL: 'http://localhost:1000/back/',
+    baseURL,
     url: 'users/',
   });
  
@@ -88,7 +89,7 @@ const handleConvos=async(e)=>{
   try{  
     const res=await axios({
       method: 'get',
-      baseURL: 'http://localhost:1000/back/',
+      baseURL, 
       url: `/conversations/find/${pId}/${user._id}`,
     })
     console.log("runn")
@@ -102,7 +103,7 @@ const handleConvos=async(e)=>{
       console.log(JSON.stringify(mem))
       const res=await axios ({
         method:"post",
-       baseURL: 'http://localhost:1000/back/',
+       baseURL,
        url:"conversations/",
        data:mem
       }).then(function (response) {
@@ -133,7 +134,7 @@ const check=()=>{
 //   try{
 //       const res=await axios({
 //         method:"put",
-//         baseURL: 'http://localhost:1000/back/',
+//         baseURL: 'http://raotauqir-001-site4.ftempurl.com/back/',
 //         url:`users/follow/${pId}`
 //       })
 //   alert("done")

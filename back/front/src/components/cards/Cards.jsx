@@ -5,10 +5,11 @@ const Cards = () => {
   const[cityInfo,setCityInfo]=useState([]);
   useEffect(() => {
     const getInfo=async(event)=>{
+      const baseURL = process.env.REACT_APP_BASE_URL;
         const res=await 
         axios({
             method: 'get',
-            baseURL: 'http://localhost:1000/back/',
+            baseURL,
             url: 'users/',
           });
           const getCId=event.target.value;

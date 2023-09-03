@@ -10,11 +10,13 @@ export default function Conversation( props ) {
     // console.log(props.value)
   // const friendId=props.value;
     const getUser = async () => {
+      const baseURL = process.env.REACT_APP_BASE_URL;
       try {
+
         const res = await axios
         ({
           method:'get',
-          baseURL:"http://localhost:1000/back/",
+          baseURL,
           url:`/users/user/${friendId}`
         });
         setUser(res.data);

@@ -6,6 +6,7 @@ import { io } from "socket.io-client";
 import axios from "axios";
 import "./message.css"
 export default function Message() {
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const[conversations,setConversations]=useState([]); 
   const [messages,setMessages]=useState([])
   const {pId,setPId}=useContext(pContext)
@@ -30,15 +31,12 @@ export default function Message() {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
       console.log(users);
-      // setOnlineUsers(
-      //   user.followings.filter((f)  => users.some((u) => u.userId === f))
-      // );
     });
   }, [user]);
   useEffect(() => {
-    // console.log(arrivalMessage.text)
+    
     arrivalMessage &&
-      // conversations?.members.includes(arrivalMessage.sender) &&
+      
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage]);
 
@@ -54,7 +52,7 @@ export default function Message() {
       try{  
         const res=await axios({
           method: 'get',
-          baseURL: 'http://localhost:1000/back/',
+          baseURL,
           url: `/conversations/find/${pId}/${user._id}`,
         })
         console.log("runn")
@@ -80,7 +78,7 @@ useEffect(()=>{
     try{  
       const res=await axios({
         method: 'get',
-        baseURL: 'http://localhost:1000/back/',
+        baseURL,
         url: `/messages/${conversations?._id}`,
       })
       console.log(res.data )
@@ -114,7 +112,7 @@ useEffect(()=>{
     try {
       const res = await axios({
         method: 'post',
-        baseURL: 'http://localhost:1000/back/',
+        baseURL,
         url: `/messages/`,
         data:message
       })
